@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>trainer</title>
+  <link rel="stylesheet" href="css/normalize.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="container" class="container">
+    <header>
+      <h1 class="page-header">Trainer Webcomponents</h1>
+      <h2><small>...built with templates & Shadow DOM</small></h2>
+        <select class="form-control" id="city-select">
+            <option value="all">Auswahl:</option>
+        </select>
+    </header>
+
+    <!--
+      start template...it won't display until we tell it to in
+      main.js
+    -->
+    <template id="trainer">
+      <style>
+        
+        /*
+         * use something like Polymer & you don't need to use 
+         * "@import".
+         */
+        @import url("css/normalize.min.css");
+        @import url("css/bootstrap.min.css");
+
+        /* none of these styles can be accessed outside the template */
+
+        .template {
+          display: inline-block;
+          margin: 6px;
+        }
+
+        .btn {
+          margin: 10px;
+          float: right;
+        }
+
+        .thumbnail {
+          margin-bottom: 0;
+        }
+
+        .trainer__title {
+          text-align: left;
+        }
+
+        #trainer-title {
+          font-style: italic;
+        }
+
+          img {
+            max-width: 100%;
+            height: auto;
+          }
+
+      </style>
+
+      <article class="template trainer panel panel-default">
+        <header class="panel-heading">
+          <h2 class="panel-title trainer__title">
+
+            <!-- some content will load in these two span tags -->
+            <span id="trainer-title"></span>
+            <br />
+            by <span id="trainer-name"></span>
+          </h2>
+        </header>
+
+        <!--
+          some content will load into src and alt attributes for this
+          img tag
+        -->
+        <img src="" alt="" class="thumbnail">
+
+        <!--
+          some content will load in the href attribute for this a tag
+        -->
+        <a href="" id="trainer-btn" class="btn btn-primary" role="button" target="blank">Trainer buchen</a>
+      </article>
+    </template> <!-- #trainer -->
+
+    <!-- the shadow host...template content goes in here -->
+    <section id="trainer-all" class="trainer-section"></section>
+
+
+      <!-- Conditionally load WC polyfills -->
+      <script>
+          if ('registerElement' in document
+                  && 'createShadowRoot' in HTMLElement.prototype
+                  && 'import' in document.createElement('link')
+                  && 'content' in document.createElement('template')) {
+              // We're using a browser with native WC support!
+          } else {
+              document.write('<script src="/webcomponentsjs/webcomponents.min.js"><\/script>');
+          }
+      </script>
+    <script src="scripts/main.js"></script>
+  </div> <!-- #container-->
+</body>
+</html>

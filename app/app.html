@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <meta name="description" content="{{description}}">
+    <link rel="import" href="hallo.html">
+
+    <!--<link rel="stylesheet" href="/assets/css/main.css">-->
+</head>
+<body>
+<noscript>
+    <div class="nojs-intro">
+        <p><strong>JavaScript scheint in Ihrem Browser deaktiviert zu sein.</strong></p>
+
+        <p>Sie müssen JavaScript in Ihrem Browser aktivieren um alle Funktionen der Seite nutzen zu können.</p>
+    </div>
+</noscript>
+
+<p>Blubb</p>
+<div class="container"></div>
+
+<say-hi name="Micha"></say-hi>
+<shadow-element>
+    <div>( I'm in the light dom )</div>
+</shadow-element>
+
+<script src="/webcomponentsjs/webcomponents.min.js"></script>
+<script>
+    function supportsImports() {
+        return 'import' in document.createElement('link');
+    }
+
+    if (supportsImports()) {
+        console.log('jup');
+
+        var link = document.querySelector('link[rel="import"]');
+        var content = link.import;
+        // Grab DOM from warning.html's document.
+        var el = content.querySelector('.template');
+        document.body.querySelector('.container').appendChild(el.cloneNode(true));
+
+    } else {
+        console.log('nope, nimm doch einfach reqiurejs oder so');
+    }
+</script>
+</body>
+</html>

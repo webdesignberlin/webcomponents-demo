@@ -1,0 +1,19 @@
+{
+  "name": "htmlincludes",
+  "version": "0.0.0",
+  "authors": [
+    "Michael Gerstmann <gerstmann@mcfit.com>"
+  ],
+  "description": "testproject",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "webcomponentsjs": "~0.5.4"
+  }
+}
